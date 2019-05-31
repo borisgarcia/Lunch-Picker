@@ -10,6 +10,7 @@ export default class App extends Component{
       restaurants: [],
       filter: 'all',
       sortBy: '',
+      error: false
     }   
   }
 
@@ -21,34 +22,48 @@ export default class App extends Component{
     })
   }
   render(){
-    return (this.state.restaurants || []).map(item => (
-      <div className="Hola" key={item._id}>
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src={item.image}></img>
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src={item.pic}></img>
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">{item.name}</p>
-                <p class="subtitle is-6">{item.cuisine}</p>
-              </div>
-            </div>
-            <div class="media-content">
-                <p class="title is-6">Address: {item.address}</p>
-                <p class="subtitle is-6">Opening Hours: {item.schedule}</p>
-            </div>
-          </div>
+    return (
+      <div>
+        <div>
+
         </div>
+
+        <div>{(() => {
+          if(!this.state.error)
+          {
+            return((this.state.restaurants || []).map(item => (
+              <div className="Hola" key={item._id}>
+                <div className="card">
+                  <div className="card-image">
+                    <figure className="image is-4by3">
+                      <img src={item.image}></img>
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <div className="media">
+                      <div className="media-left">
+                        <figure className="image is-48x48">
+                          <img src={item.pic}></img>
+                        </figure>
+                      </div>
+                      <div className="media-content">
+                        <p className="title is-4">{item.name}</p>
+                        <p className="subtitle is-6">{item.cuisine}</p>
+                      </div>
+                    </div>
+                    <div className="media-content">
+                        <p className="_title">Address: </p> <p className="_subt">{item.address}</p>
+                        <p></p>
+                        <p className="_title">Opening Hours:</p>  <p className="_subt">{item.hours}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )))
+          }
+        })()}</div>
       </div>
-    ));
+    );
   }
   componentDidMount() {
     this.loadAllRestaurants();
