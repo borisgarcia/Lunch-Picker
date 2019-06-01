@@ -1,32 +1,11 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 20vmin;
-}
-
-.App-header {
-  height: 20%;
-  padding: 20px;
-  color: white;
-  font-family: 'Courier New';
-}
-
-.App-intro {
-  font-size: large;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
+  background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+  padding: 12px 16px;
 
-.buttons {
-  position: relative;
-  display: inline;
 }
 
 .dropdown {
@@ -35,37 +14,63 @@
   margin-left: 2%;
   margin-top: 2%;
 }
+.body{
+  background-image: url("./vector.jpg");
+  opacity: 1;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropdown-content input:hover {background-color: #f1f1f1;}
 
-.dropbtn {
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10%;
-}
-.Hola{
-  height: 25%;
-  width: 30%;
+.box{
+  width: 500px;
+  min-height: 600px;
   margin: 0 auto;
   margin-top: 1%;
   margin-bottom: 1%;
 }
+
+._m_title{
+  display:inline;
+  font-weight: bold;
+  font-size:1.6vw;
+}
+
 ._title{
   display:inline;
   font-weight: bold;
+  font-size:1vw;
 }
 ._subt{
   display:inline;
+  font-size:1vw;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media only screen and (max-width: 1024px) {
+  /* For everything bigger than 768px */
+  ._m_title{
+    display:inline;
+  font-weight: bold;
+  font-size:6vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  ._title{
+    display:inline;
+    font-weight: bold;
+    font-size:3.5vw;
   }
+  ._subt{
+    display:inline;
+    font-size:3.5vw;
+  }
+  .box{
+    width: 80%;
+    min-height: 60%;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  
 }

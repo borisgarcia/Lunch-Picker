@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bulma-components/full'
 import './App.css'
-import logo from './logo.svg'
+
 
 export default class App extends Component {
   constructor (props) {
@@ -48,52 +48,53 @@ export default class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className="body">
         <div>
           <div className="buttons">
             <div className="dropdown">
-              <button className="dropbtn">Cuisine</button>
+              <Button className="is-medium is-rounded"> Cuisine</Button>
               <div className="dropdown-content">
                 <div>
                   <label>
                     <input type="radio" name="cuisine" ref="italian" onChange={this.handleCuisineChange}></input>
-                    Italian
+                    &emsp;Italian
                   </label>
                   <br></br>
                   <label>
                     <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    Italian
+                    &emsp;Italian
                   </label>
                 </div>
               </div>
             </div>
+            
             <div className="dropdown">
-              <button className="dropbtn">Sort by</button>
+              <Button className="is-medium is-rounded is-outlined">Sort by</Button>
               <div className="dropdown-content">
                 <label>
-                  <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>Name
+                  <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>&emsp;Name
                 </label>
                 <br></br>
                 <label>
-                  <input name="sort" type="radio" ref="cuisine" onChange={this.handleSortByChange}></input>Cuisine
+                  <input name="sort" type="radio" ref="cuisine" onChange={this.handleSortByChange}></input>&emsp;Cuisine
                 </label>
                 <br></br>
                 <label>
-                  <input name="sort" type="radio" ref="rating" onChange={this.handleSortByChange}></input>Rating
+                  <input name="sort" type="radio" ref="rating" onChange={this.handleSortByChange}></input>&emsp;Rating
                 </label>
               </div>
             </div>
             <div className="dropdown">
-              <Button variant="light" onClick={this.loadAllRestaurants}>Search</Button>
+              <Button className="is-medium is-rounded" onClick={this.loadAllRestaurants}>Search</Button>
             </div>
           </div>
         </div>
-
+      
         <div>{(() => {
           if (!this.state.error) {
             return ((this.state.restaurants || []).map(item => (
-              <div className="row"key={item._id}>
-                <div className="Hola" >
+              <div className="row" key={item._id}>
+                <div className="box" >
                   <div className="card">
                     <div className="card-image">
                       <figure className="image is-4by3">
@@ -108,8 +109,9 @@ export default class App extends Component {
                           </figure>
                         </div>
                         <div className="media-content">
-                          <p className="title is-4">{item.name}</p>
-                          <p className="subtitle is-6">{item.cuisine}</p>
+                          <p className="_m_title">{item.name}</p>
+                          <br></br>
+                          <p className="_subt">{item.cuisine}</p>
                         </div>
                       </div>
                       <div className="media-content">
