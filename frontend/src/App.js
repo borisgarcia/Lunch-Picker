@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bulma-components/full'
 import './App.css'
-
+import logo from './unnamed.png'
 
 export default class App extends Component {
   constructor (props) {
@@ -26,11 +26,11 @@ export default class App extends Component {
   }
 
   handleCuisineChange () {
-    if (this.refs.italian.checked) {
-      this.setState({ filter: 'American' })
+    if (this.refs.all.checked) {
+      this.setState({ filter: 'all' })
     }
     else if (this.refs.pizza.checked) {
-      this.setState({ filter: 'Adios' })
+      this.setState({ filter: 'American' })
     }
   };
 
@@ -48,15 +48,33 @@ export default class App extends Component {
 
   render () {
     return (
-      <div className="body">
-        <div>
+      <div>
+        <div className="App">
+          <img src={logo} className="appLogo"/>
+          <p className="Bar"> </p>
+          <h1 className="Titulo">Lunch Picker</h1>
           <div className="buttons">
             <div className="dropdown">
-              <Button className="is-medium is-rounded"> Cuisine</Button>
+              <Button className="is-medium is-rounded is-focused"> Cuisine</Button>
               <div className="dropdown-content">
                 <div>
                   <label>
-                    <input type="radio" name="cuisine" ref="italian" onChange={this.handleCuisineChange}></input>
+                    <input type="radio" name="cuisine" ref="all" onChange={this.handleCuisineChange}></input>
+                    &emsp;All
+                  </label>
+                  <br></br>
+                  <label>
+                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
+                    &emsp;American
+                  </label>
+                  <br></br>
+                  <label>
+                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
+                    &emsp; Cafe
+                  </label>
+                  <br></br>
+                  <label>
+                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
                     &emsp;Italian
                   </label>
                   <br></br>
@@ -64,12 +82,21 @@ export default class App extends Component {
                     <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
                     &emsp;Italian
                   </label>
+                  <br></br>
+                  <label>
+                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
+                    &emsp;Italian
+                  </label>
+                  <br></br>
+                  <label>
+                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
+                    &emsp;Pizzeria
+                  </label>
                 </div>
               </div>
             </div>
-            
             <div className="dropdown">
-              <Button className="is-medium is-rounded is-outlined">Sort by</Button>
+              <Button className="is-medium is-rounded is-outlined is-focused">Sort by</Button>
               <div className="dropdown-content">
                 <label>
                   <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>&emsp;Name
@@ -85,7 +112,7 @@ export default class App extends Component {
               </div>
             </div>
             <div className="dropdown">
-              <Button className="is-medium is-rounded" onClick={this.loadAllRestaurants}>Search</Button>
+              <Button className="is-medium is-rounded is-focused" onClick={this.loadAllRestaurants}>Search</Button>
             </div>
           </div>
         </div>

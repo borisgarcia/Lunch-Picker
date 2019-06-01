@@ -2,17 +2,15 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
-
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 2%;
-  margin-top: 2%;
+  position: absolute;
+  display: inline;
+  z-index:1;
 }
 .body{
   background-image: url("./vector.jpg");
@@ -35,7 +33,18 @@
 ._m_title{
   display:inline;
   font-weight: bold;
-  font-size:1.6vw;
+  font-size:1.5vw;
+}
+
+.buttons{
+  position: absolute;
+  height: 2vw;
+  right: 2.5vw;
+  top: 3.5vw;
+}
+
+.h2{
+  position: absolute;
 }
 
 ._title{
@@ -47,7 +56,33 @@
   display:inline;
   font-size:1vw;
 }
+.App {
+  background-color: #282c34;
+  min-height: 10vw;
+  display:flex;
+}
 
+.appLogo {
+  height:6vw;
+  position: absolute;
+  top: 2vw;
+  left: 10vw;
+}
+
+.Bar {
+  border-left: 7px solid white; 
+  height: 6vw; 
+  position:absolute; 
+  left: 20vw; 
+  top: 2vw;
+}
+
+.Titulo {
+  color: white;
+  position: absolute;
+  left: 24vw;
+  top:3vw;
+}
 @media only screen and (max-width: 1024px) {
   /* For everything bigger than 768px */
   ._m_title{
