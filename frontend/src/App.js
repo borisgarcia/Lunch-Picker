@@ -9,8 +9,7 @@ export default class App extends Component {
     this.state = {
       restaurants: [],
       filter: 'all',
-      sortBy: '',
-      cuisine: '',
+      sortBy: 'SortedByName',
       error: false
     }
     this.handleCuisineChange = this.handleCuisineChange.bind(this)
@@ -19,7 +18,7 @@ export default class App extends Component {
   }
 
   loadAllRestaurants () {
-    fetch('http://localhost:3001/restaurants/' + this.state.filter + '/' + this.state.sortBy)
+    fetch('http://localhost:3001/restaurants/' + this.state.sortBy + '/' + this.state.filter)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({ restaurants: responseJson.data })
@@ -28,10 +27,10 @@ export default class App extends Component {
 
   handleCuisineChange () {
     if (this.refs.italian.checked) {
-      this.setState({ cuisine: 'Hola' })
+      this.setState({ filter: 'American' })
     }
     else if (this.refs.pizza.checked) {
-      this.setState({ cuisine: 'Adios' })
+      this.setState({ filter: 'Adios' })
     }
   };
 
