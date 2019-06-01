@@ -15,7 +15,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
-router.get("/SortedByName", async (req, res) => {
+router.get("all/SortedByName", async (req, res) => {
   try {
     let restaurant = restaurants.sort(function(a,b){
       return a.name.localeCompare(b.name);
@@ -30,6 +30,7 @@ router.get("/SortedByName", async (req, res) => {
     });
   }
 });
+
 router.get("/SortedByCuisine", async (req, res) => {
   try {
     let restaurant = restaurants.sort(function(a,b){
@@ -45,6 +46,7 @@ router.get("/SortedByCuisine", async (req, res) => {
     });
   }
 });
+
 router.get("/SortedByRating", async (req, res) => {
   try {
     let restaurant = restaurants.sort(function(a,b){
@@ -60,7 +62,6 @@ router.get("/SortedByRating", async (req, res) => {
     });
   }
 });
-
 
 router.get("/:cuisine", async (req, res) => {
   let { cuisine } = req.params;
