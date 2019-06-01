@@ -28,8 +28,7 @@ export default class App extends Component {
   handleCuisineChange () {
     if (this.refs.all.checked) {
       this.setState({ filter: 'all' })
-    }
-    else if (this.refs.pizza.checked) {
+    } else if (this.refs.american.checked) {
       this.setState({ filter: 'American' })
     }
   };
@@ -37,11 +36,9 @@ export default class App extends Component {
   handleSortByChange () {
     if (this.refs.name.checked) {
       this.setState({ sortBy: 'SortedByName' })
-    }
-    else if (this.refs.cuisine.checked) {
+    } else if (this.refs.cuisine.checked) {
       this.setState({ sortBy: 'SortedByCuisine' })
-    }
-    else if (this.refs.rating.checked) {
+    } else if (this.refs.rating.checked) {
       this.setState({ sortBy: 'SortedByRating' })
     }
   };
@@ -49,7 +46,7 @@ export default class App extends Component {
   render () {
     return (
       <div>
-        <div className="App">
+        <div className="Header">
           <img src={logo} className="appLogo"/>
           <p className="Bar"> </p>
           <h1 className="Titulo">Lunch Picker</h1>
@@ -58,57 +55,30 @@ export default class App extends Component {
               <Button className="is-medium is-rounded is-focused"><span className="textS">Cuisine</span></Button>
               <div className="dropdown-content">
                 <div>
-                  <label>
-                    <input type="radio" name="cuisine" ref="all" onChange={this.handleCuisineChange}></input>
-                    &emsp;All
-                  </label>
+                  <input type="radio" name="cuisine" ref="all" onChange={this.handleCuisineChange}></input>&emsp;All
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp;American
-                  </label>
+                  <input type="radio" name="cuisine" ref="american" onChange={this.handleCuisineChange}></input>&emsp;American
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp; Cafe
-                  </label>
+                  <input type="radio" name="cuisine" ref="cafe" onChange={this.handleCuisineChange}></input>&emsp;Cafe
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp;Italian
-                  </label>
+                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp;Italian
-                  </label>
+                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp;Italian
-                  </label>
+                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
                   <br></br>
-                  <label>
-                    <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>
-                    &emsp;Pizzeria
-                  </label>
+                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Pizzeria
                 </div>
               </div>
             </div>
             <div className="dropdown">
               <Button className="is-medium is-rounded is-outlined is-focused"><span className="textS">Sort By</span></Button>
               <div className="dropdown-content">
-                <label>
-                  <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>&emsp;Name
-                </label>
+                <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>&emsp;Name
                 <br></br>
-                <label>
-                  <input name="sort" type="radio" ref="cuisine" onChange={this.handleSortByChange}></input>&emsp;Cuisine
-                </label>
+                <input name="sort" type="radio" ref="cuisine" onChange={this.handleSortByChange}></input>&emsp;Cuisine
                 <br></br>
-                <label>
-                  <input name="sort" type="radio" ref="rating" onChange={this.handleSortByChange}></input>&emsp;Rating
-                </label>
+                <input name="sort" type="radio" ref="rating" onChange={this.handleSortByChange}></input>&emsp;Rating
               </div>
             </div>
             <div className="dropdown">
@@ -116,7 +86,6 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-      
         <div>{(() => {
           if (!this.state.error) {
             return ((this.state.restaurants || []).map(item => (
@@ -159,5 +128,4 @@ export default class App extends Component {
       </div>
     )
   }
-
 }
