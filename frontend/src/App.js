@@ -55,7 +55,7 @@ export default class App extends Component {
           <h1 className="Titulo">Lunch Picker</h1>
           <div className="buttons">
             <div className="dropdown">
-              <Button className="is-medium is-rounded is-focused"> Cuisine</Button>
+              <Button className="is-medium is-rounded is-focused"><span className="textS">Cuisine</span></Button>
               <div className="dropdown-content">
                 <div>
                   <label>
@@ -96,7 +96,7 @@ export default class App extends Component {
               </div>
             </div>
             <div className="dropdown">
-              <Button className="is-medium is-rounded is-outlined is-focused">Sort by</Button>
+              <Button className="is-medium is-rounded is-outlined is-focused"><span className="textS">Sort By</span></Button>
               <div className="dropdown-content">
                 <label>
                   <input name="sort" type="radio" ref="name" onChange={this.handleSortByChange}></input>&emsp;Name
@@ -112,7 +112,7 @@ export default class App extends Component {
               </div>
             </div>
             <div className="dropdown">
-              <Button className="is-medium is-rounded is-focused" onClick={this.loadAllRestaurants}>Search</Button>
+              <Button className="is-medium is-rounded is-focused" onClick={this.loadAllRestaurants}><span className="textS">Search</span></Button>
             </div>
           </div>
         </div>
