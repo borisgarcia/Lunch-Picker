@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   loadAllRestaurants () {
-    fetch('http://localhost:3001/restaurants/' + this.state.sortBy + '/' + this.state.filter)
+    fetch('https://tranquil-dusk-66828.herokuapp.com/restaurants/' + this.state.sortBy + '/' + this.state.filter)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({ restaurants: responseJson.data })
@@ -30,6 +30,20 @@ export default class App extends Component {
       this.setState({ filter: 'all' })
     } else if (this.refs.american.checked) {
       this.setState({ filter: 'American' })
+    } else if (this.refs.cafe.checked) {
+      this.setState({ filter: 'Cafe' })
+    } else if (this.refs.international.checked) {
+      this.setState({ filter: 'International' })
+    } else if (this.refs.hamburger.checked) {
+      this.setState({ filter: 'Hamburgers' })
+    } else if (this.refs.mediterranean.checked) {
+      this.setState({ filter: 'Mediterranean' })
+    } else if (this.refs.pizza.checked) {
+      this.setState({ filter: 'Pizza' })
+    } else if (this.refs.seafood.checked) {
+      this.setState({ filter: 'Seafood' })
+    } else if (this.refs.sushi.checked) {
+      this.setState({ filter: 'Sushi' })
     }
   };
 
@@ -47,7 +61,7 @@ export default class App extends Component {
     return (
       <div>
         <div className="Header">
-          <img src={logo} className="appLogo"/>
+          <img src={logo} alt="logo" className="appLogo"/>
           <p className="Bar"> </p>
           <h1 className="Titulo">Lunch Picker</h1>
           <div className="buttons">
@@ -61,13 +75,17 @@ export default class App extends Component {
                   <br></br>
                   <input type="radio" name="cuisine" ref="cafe" onChange={this.handleCuisineChange}></input>&emsp;Cafe
                   <br></br>
-                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
+                  <input type="radio" name="cuisine" ref="international" onChange={this.handleCuisineChange}></input>&emsp;International
                   <br></br>
-                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
+                  <input type="radio" name="cuisine" ref="hamburger" onChange={this.handleCuisineChange}></input>&emsp;Hamburger
                   <br></br>
-                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Italian
+                  <input type="radio" name="cuisine" ref="mediterranean" onChange={this.handleCuisineChange}></input>&emsp;Mediterranean
                   <br></br>
-                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Pizzeria
+                  <input type="radio" name="cuisine" ref="pizza" onChange={this.handleCuisineChange}></input>&emsp;Pizza
+                  <br></br>
+                  <input type="radio" name="cuisine" ref="seafood" onChange={this.handleCuisineChange}></input>&emsp;Seafood
+                  <br></br>
+                  <input type="radio" name="cuisine" ref="sushi" onChange={this.handleCuisineChange}></input>&emsp;Sushi
                 </div>
               </div>
             </div>
@@ -94,14 +112,14 @@ export default class App extends Component {
                   <div className="card">
                     <div className="card-image">
                       <figure className="image is-4by3">
-                        <img src={item.image}></img>
+                        <img src={item.image} alt="image"></img>
                       </figure>
                     </div>
                     <div className="card-content">
                       <div className="media">
                         <div className="media-left">
                           <figure className="image is-48x48">
-                            <img src={item.pic}></img>
+                            <img src={item.pic} alt="pic"></img>
                           </figure>
                         </div>
                         <div className="media-content">
